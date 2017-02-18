@@ -10,13 +10,19 @@ h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 2.5em; }
 
+.title-navbar {
+  background: -webkit-linear-gradient(90deg, #007adf 10%, #00ecbc 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5em; }
+
 /********** Landing Page ****************/
 .welcome-body {
-  background: -webkit-linear-gradient(90deg, #74ebd5 10%, #9face6 90%);
+  background: -webkit-linear-gradient(90deg, #007adf 10%, #00ecbc 90%);
   /* Chrome 10+, Saf5.1+ */
-  background: -moz-linear-gradient(90deg, #74ebd5 10%, #9face6 90%);
+  background: -moz-linear-gradient(90deg, #007adf 10%, #00ecbc 90%);
   /* FF3.6+ */
-  background: linear-gradient(90deg, #74ebd5 10%, #9face6 90%);
+  background: linear-gradient(90deg, #007adf 10%, #00ecbc 90%);
   /* W3C */ }
 
 .landing-master-div {

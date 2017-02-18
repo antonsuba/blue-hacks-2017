@@ -39,6 +39,8 @@ class AuthController extends Controller
     public function getOrCreateUser($user){
         $authenticatedUser = User::where('facebook_id', '=', $user->id)->first();
 
+        //die($authenticatedUser);
+
         if($authenticatedUser){
             return $authenticatedUser;
         }
