@@ -8,20 +8,19 @@
         <div class="row">
             <h1 id="prompt-header">We're here to help</h1>
         </div>
-        <br><br>
+        <br>
 
         <div class="six wide column">
 
-            <form class="ui form" method = "POST" action="{{url('/conversation/{{$id}}/send-message')}}">
+            <form class="ui form" method = "POST" action="{{url('/get-adviser')}}">
             {{ csrf_field() }}
             <div class="ui big form ">
                 <div class="field">
-                    <label>What would you like to know?</label>
-                    <textarea rows="6" name="request" placeholder="eg. How do I invest my savings"></textarea>
+                    <textarea rows="4" name="request" placeholder="Type a message"></textarea>
                 </div>
             </div>
             <br>
-            <button id="done-button-itinerary" type="submit" class="ui huge button button-shaded right floated">Send!</button>
+            <button id="done-button-itinerary" type="submit" class="ui huge button button-shaded right floated">Send</button>
             </form>
 
         </div>
