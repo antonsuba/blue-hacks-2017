@@ -12,7 +12,7 @@
 
         <div class="six wide column">
 
-            <div id="someID">
+            <div id="message-container">
             
             </div>
 
@@ -38,20 +38,23 @@
 
 <script type="text/javascript">
     $('.ui.dropdown').dropdown();
+
+    var currentTimestamp = Date.now();
     
     var fetchMessages = function() {
         $.ajax({
             dataType: 'json',
             type: "GET",
             url: "/conversation/messages",
+            data: {"currentTimestamp": currentTimestamp}
             success: function(data) {
-            console.log("YATA");
+            currentTimestamp = Date.now();
             if(data.length > 0) {
                 var j = JSON.parse(data);
                 for(var i = 0; i < data.length; i++){
                     var message = j[i];
-                    var content = message["content"];
-                    $("#someID").append(content);
+                    var content = $("<div></div>").text(message["content"]);
+                    $("#message-container").append(content);
                 }
             }}
         })
