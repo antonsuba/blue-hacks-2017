@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ConversationsController extends Controller
+class MessagesController extends Controller
 {
-    public function retrieveMessages(Request $request){
+    public function sendMessage(Request $request){
         $inputs = $request->input();
-        $currentUser = Auth::user();
         $conversation;
 
         $checkAdviser = User_Types::where('user_id', Auth::id(), 'category_id', $inputs['categoryID'])->get();
@@ -20,9 +19,11 @@ class ConversationsController extends Controller
             $conversation = Conversation::where('advisee_id', Auth::id(), 'adviser_id', $inputs['userID']);
         }
 
-        $messages = Message::where('user_id', Auth::id(), 'conversation_id', $conversation->id);
-
-        return $messages;
+        $message = new Message;
+        $message->content = $inputs['content'];
+        $message->user_id = Auth::id();
+        $message->conversation_id = $conversation->id;
+        
+        $message->save();
     }
-    
 }
