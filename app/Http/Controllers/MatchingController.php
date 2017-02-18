@@ -11,7 +11,7 @@ class MatchingController extends Controller
         $inputs = $request->input();
 
         $results = UserType::where('category_id', $inputs['categoryID'])->orderBy('rating', 'desc')->limit(5)->get();
-        $advisers = [];
+        $advisers = array();
         foreach ($results as $result) {
             $adviser = User::where('id', $result->user_id);
             array_push($advisers, $adviser);

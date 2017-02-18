@@ -10,20 +10,28 @@ class ConversationsController extends Controller
         $inputs = $request->input();
         $currentUser = Auth::user();
         $conversation;
+        $adviseeID;
+        $adviserID;
 
         $checkAdviser = User_Types::where('user_id', Auth::id(), 'category_id', $inputs['categoryID'])->get();
         if($checkAdviser->isEmpty()){
             //user is advisee
-            $conversation = Conversation::where('advisee_id', $inputs['userID'], 'adviser_id', Auth::id());
+            $adviseeID = $inputs['userID'];
+            $adviserID = Auth::id();
         } else{
             //user is advisor
-            $conversation = Conversation::where('advisee_id', Auth::id(), 'adviser_id', $inputs['userID']);
+            $adviseeID = Auth::id();
+            $adviserID = $inputs['userID'];
         }
-
-        //$messages = Message::where('user_id', Auth::id(), 'conversation_id', $conversation->id)->get();
+        $conversation = Conversation::where('advisee_id', $adviseeID, 'adviser_id', $adviserID)->first();
 
         $messages = $conversation->messages();
+        $list = array();
+        foreach ($messages as $message) {
+            array_push($list, $message->user_id, $message->content);
+        }
+        //$messages = Message::where('user_id', Auth::id(), 'conversation_id', $conversation->id)->get();
 
-        return $messages;
+        return view('conversation', ['advisee_id' => $adviseeID, 'adviser_id' => $adviserID, 'messages' => $list]);
     }
 }
