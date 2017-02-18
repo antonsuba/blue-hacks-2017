@@ -20,7 +20,7 @@ class CreateConversationsTable extends Migration
 			$table->foreign('advisee_id')->references('id')->on('users');
 			$table->rememberToken();
 			$table->timestamps();
-		};
+		});
     }
 
     /**
