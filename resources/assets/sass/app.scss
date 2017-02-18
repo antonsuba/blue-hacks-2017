@@ -31,6 +31,14 @@ h1{
 	top: 140px;
 }
 
+.button-shaded{
+	color: #FFFFFF !important;
+	background: -webkit-linear-gradient(20deg, $gradient-left 10%, $gradient-right 90%) !important; /* Chrome 10+, Saf5.1+ */ 
+	background: -moz-linear-gradient(20deg, $gradient-left 10%, $gradient-right 90%) !important; /* FF3.6+ */ 
+	background: linear-gradient(20deg, $gradient-left 10%, $gradient-right 90%) !important; /* W3C */ 
+}
+
+
 
 /********** Landing Page ****************/
 .welcome-body{

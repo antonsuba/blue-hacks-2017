@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class MessagesController extends Controller
 {
+    public function index($category){
+        return view('message');
+    }
+
     public function sendMessage(Request $request){
         $inputs = $request->input();
         $conversation;

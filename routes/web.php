@@ -17,6 +17,9 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index');
 
+Route::get('/{category}', 'MessagesController@index');
+Route::get('/send-message', 'MessagesController@sendMessage');
+
 /*
 |--------------------------------------------------------------------------
 | Auth Routes
