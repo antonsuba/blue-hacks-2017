@@ -12,7 +12,7 @@
 
         <div class="six wide column">
 
-            <form class="ui form" method = "POST" action="{{url('/get-adviser')}}">
+            <form class="ui form" method = "POST" action="{{url('/conversation/{{$id}}/send-message')}}">
             {{ csrf_field() }}
             <div class="ui big form ">
                 <div class="field">

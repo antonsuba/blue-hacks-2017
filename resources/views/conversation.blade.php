@@ -16,12 +16,11 @@
             {{ csrf_field() }}
             <div class="ui big form ">
                 <div class="field">
-                    <label>What would you like to know?</label>
-                    <textarea rows="5" name="request" placeholder="eg. How do I invest my savings"></textarea>
+                    <textarea rows="4" name="request" placeholder="Type a message"></textarea>
                 </div>
             </div>
             <br>
-            <button id="done-button-itinerary" type="submit" class="ui huge button button-shaded right floated">Send!</button>
+            <button id="done-button-itinerary" type="submit" class="ui huge button button-shaded right floated">Send</button>
             </form>
 
         </div>
