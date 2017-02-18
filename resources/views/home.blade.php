@@ -8,7 +8,8 @@
     <div id="cards" class="ui two stackable cards">
         
         {{-- @foreach($categories as $category) --}}
-        <div class="ui raised link card" onclick="window.location='/finance">
+        {{-- <div class="ui raised link card" onclick="window.location='/{{$category->name}}"> --}}
+        <div class="ui raised link card" onclick="window.location='/finance'">
             <div class="image">
                 <div class="card-background centered">
                     
@@ -17,7 +18,7 @@
         </div>
         {{-- @endforeach --}}
 
-        <div class="ui raised link card" onclick="window.location='/finance">
+        <div class="ui raised link card" onclick="window.location='/finance'">
             <div class="image">
                 <div class="card-background centered">
                     
