@@ -18,6 +18,19 @@ class MatchingController extends Controller
         }
         $adviser = $advisers[rand(0, 4)];
 
-        return $adviser;
+        createPost($inputs['content'], $adviser->id);
+    }
+
+    public function createPost($content, $adviserID){
+        $conversation = new Conversation;
+        $conversation->advisee_id = Auth::id();
+        $conversation->adviser_id = User::find($adviserID);
+        $conversation->save();
+
+        $message = new Message();
+        $message->user_id = Auth::id();
+        $message->content = $content;
+        $message->conversation_id = $conversation->id;
+        $message->save();
     }
 }
