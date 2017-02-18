@@ -9,7 +9,9 @@ use App\UserType;
 class MatchingController extends Controller
 {
     public function index($category){
-        return view('message');
+        $category = Category::where('name', $inputs['categoryName'])->first();
+
+        return view('message', $category->id);
     }
 
     //Laravel.generate.code();

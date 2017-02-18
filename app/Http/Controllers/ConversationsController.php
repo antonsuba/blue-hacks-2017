@@ -13,7 +13,9 @@ class ConversationsController extends Controller
         $adviseeID;
         $adviserID;
 
-        $checkAdviser = User_Types::where('user_id', Auth::id(), 'category_id', $inputs['categoryID'])->get();
+        $category = Category::where('name', $inputs['categoryName'])->first();
+
+        $checkAdviser = User_Types::where('user_id', Auth::id(), 'category_id', $category->id)->get();
         if($checkAdviser->isEmpty()){
             //user is advisee
             $adviseeID = $inputs['userID'];
