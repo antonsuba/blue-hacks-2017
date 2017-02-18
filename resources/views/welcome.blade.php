@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Advisr</title>
+        <title>{{ config('app.name') }}</title>
 
         <link href="/css/semantic.css" rel="stylesheet">
         <link href="/css/app.css" rel="stylesheet">
@@ -16,7 +16,7 @@
         <div class="ui one column centered grid stackable middle aligned landing-master-div">
             <div class="seven wide column grid">
                 <h1 class="title-logo">
-                    Advisr
+                    {{ config('app.name') }}
                 </h1>
                 
                 <center>
