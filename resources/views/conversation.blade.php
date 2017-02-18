@@ -12,6 +12,10 @@
 
         <div class="six wide column">
 
+            <div id="someID">
+            
+            </div>
+
             <form class="ui form" method = "POST" action="{{url('/get-adviser')}}">
             {{ csrf_field() }}
             <div class="ui big form ">
@@ -35,7 +39,25 @@
 <script type="text/javascript">
     $('.ui.dropdown').dropdown();
     
-    
+    var fetchMessages = function() {
+        $.ajax({
+            dataType: 'json',
+            type: "GET",
+            url: "/conversation/messages",
+            success: function(data) {
+            console.log("YATA");
+            if(data.length > 0) {
+                var j = JSON.parse(data);
+                for(var i = 0; i < data.length; i++){
+                    var message = j[i];
+                    var content = message["content"];
+                    $("#someID").append(content);
+                }
+            }}
+        })
+    }
+
+    setInterval(fetchMessages, 5000);
 </script>
 
 @endsection
