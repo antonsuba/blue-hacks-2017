@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\UserType;
+
 class MatchingController extends Controller
 {
     //Laravel.generate.code();
