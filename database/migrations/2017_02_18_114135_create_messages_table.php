@@ -21,7 +21,7 @@ class CreateMessagesTable extends Migration
 			$table->string('content');
 			$table->rememberToken();
 			$table->timestamps();
-		};
+		});
     }
 
     /**

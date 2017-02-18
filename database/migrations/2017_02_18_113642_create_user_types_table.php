@@ -20,7 +20,7 @@ class CreateUserTypesTable extends Migration
 			$table->foreign('category_id')->references('id')->on('categories');
 			$table->rememberToken();
 			$table->timestamps();
-		};
+		});
     }
 
     /**
