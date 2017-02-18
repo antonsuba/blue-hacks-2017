@@ -24,7 +24,7 @@
 
 <body>
 <div class="ui one column grid">
-    <div class="ui top fixed menu borderless"><!-- Wild Card Title Bar -->
+    <div class="ui top fixed menu borderless"><!-- Title Bar -->
         <div class="item">
             <h1 class="title-navbar" onclick="window.location='/home'">
                 {{ config('app.name') }}

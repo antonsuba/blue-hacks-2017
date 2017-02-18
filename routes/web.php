@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', 'HomeController@index');
+
 /*
 |--------------------------------------------------------------------------
 | Auth Routes
@@ -32,3 +34,6 @@ Route::get('auth/facebook/callback/{provider?}', 'Auth\AuthController@handleProv
 |--------------------------------------------------------------------------
 */
 
+Route::get('/conversation/messages','ConversationsController@retrieveMessages');
+
+Route::post('/message/send','MessagesController@sendMessage');
