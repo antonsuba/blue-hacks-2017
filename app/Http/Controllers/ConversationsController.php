@@ -6,14 +6,15 @@ use Illuminate\Http\Request;
 
 class ConversationsController extends Controller
 {
-    public function retrieveMessages(Request $request, $catID){
+    public function retrieveMessages(Request $request){
         $inputs = $request->input();
         $currentUser = Auth::user();
         $conversation;
         $adviseeID;
         $adviserID;
 
-        $checkAdviser = User_Types::where('user_id', Auth::id(), 'category_id', $catID)->get();
+        $category = Category::where('name', $inputs['categoryName'])->first();
+        $checkAdviser = User_Types::where('user_id', Auth::id(), 'category_id', $category->id)->get();
         if($checkAdviser->isEmpty()){
             //user is advisee
             $adviseeID = $inputs['userID'];
@@ -30,7 +31,10 @@ class ConversationsController extends Controller
             array_push($list, $message->user_id, $message->content);
         }
 
+        //$messages = Message::where('user_id', Auth::id(), 'conversation_id', $conversation->id)->get();
+        $advisee = User::find($adviseeID);
+        $adviser = User::find($adviserID);
 
-        return view('conversation', ['advisee_id' => $adviseeID, 'adviser_id' => $adviserID, 'messages' => $list]);
+        return view('conversation', ['advisee_name' => $advisee->name, 'adviser_name' => $adviser->name, 'messages' => $list]);
     }
 }

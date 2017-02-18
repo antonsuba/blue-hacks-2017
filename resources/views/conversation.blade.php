@@ -17,6 +17,14 @@
             </div>
 
             <form class="ui form" method = "POST" action="{{url('/get-adviser')}}">
+            @for($i = 0; $i < len($list); $i += 2)
+            <div>
+                
+            </div>
+            <div class="ui section divider"></div>
+            @endfor
+
+            <form class="ui form" method = "POST" action="{{url('/conversation/')}}">
             {{ csrf_field() }}
             <div class="ui big form ">
                 <div class="field">

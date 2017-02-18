@@ -4,8 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\UserType;
+
 class MatchingController extends Controller
 {
+    public function index($categoryName){
+        $category = Category::where('name', $categoryName)->first();
+
+        return view('message', $category->id);
+    }
+
     //Laravel.generate.code();
     public function getAdviser(Request $request){
         $inputs = $request->input();

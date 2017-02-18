@@ -17,10 +17,10 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/{category}', 'MessagesController@index');
-Route::get('/send-message', 'MatchingController@getAdviser');
+Route::get('/{category}', 'MatchingController@index');
+Route::post('/send-message', 'MatchingController@getAdviser');
 Route::get('/conversation/{id}', 'ConversationsController@retrieveMessages');
-Route::get('/conversation/{id}/send-message', 'ConversationsController@sendMessage');
+Route::post('/conversation/{id}/send-message', 'ConversationsController@sendMessage');
 
 /*
 |--------------------------------------------------------------------------
