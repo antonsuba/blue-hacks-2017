@@ -8,8 +8,10 @@ use App\UserType;
 
 class MatchingController extends Controller
 {
-    public function index($category){
-        return view('message');
+    public function index($categoryName){
+        $category = Category::where('name', $categoryName)->first();
+
+        return view('message', $category->id);
     }
 
     //Laravel.generate.code();

@@ -13,7 +13,9 @@ class ConversationsController extends Controller
         $adviseeID;
         $adviserID;
 
-        $checkAdviser = User_Types::where('user_id', Auth::id(), 'category_id', $inputs['categoryID'])->get();
+        $category = Category::where('name', $inputs['categoryName'])->first();
+
+        $checkAdviser = User_Types::where('user_id', Auth::id(), 'category_id', $category->id)->get();
         if($checkAdviser->isEmpty()){
             //user is advisee
             $adviseeID = $inputs['userID'];
@@ -31,7 +33,9 @@ class ConversationsController extends Controller
             array_push($list, $message->user_id, $message->content);
         }
         //$messages = Message::where('user_id', Auth::id(), 'conversation_id', $conversation->id)->get();
+        $adviseeName = User::find($adviseeID);
+        $adviserName = User::find($adviserID);
 
-        return view('conversation', ['advisee_id' => $adviseeID, 'adviser_id' => $adviserID, 'messages' => $list]);
+        return view('conversation', ['advisee_name' => $adviseeName, 'adviser_name' => $adviserName, 'messages' => $list]);
     }
 }
