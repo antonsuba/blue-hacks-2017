@@ -8,6 +8,10 @@ use App\UserType;
 
 class MatchingController extends Controller
 {
+    public function index($category){
+        return view('message');
+    }
+
     //Laravel.generate.code();
     public function getAdviser(Request $request){
         $inputs = $request->input();
