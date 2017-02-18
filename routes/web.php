@@ -18,7 +18,8 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index');
 
 Route::get('/{category}', 'MessagesController@index');
-Route::get('/send-message', 'MessagesController@sendMessage');
+Route::get('/get-adviser', 'MatchingController@sendMessage');
+Route::get('/conversation/{id}', 'ConversationsController@retrieveMessages');
 
 /*
 |--------------------------------------------------------------------------

@@ -8,7 +8,7 @@
         <div class="row">
             <h1 id="prompt-header">We're here to help</h1>
         </div>
-        <br><br>
+        <br>
 
         <div class="six wide column">
 
@@ -17,7 +17,7 @@
             <div class="ui big form ">
                 <div class="field">
                     <label>What would you like to know?</label>
-                    <textarea rows="6" name="request" placeholder="eg. How do I invest my savings"></textarea>
+                    <textarea rows="5" name="request" placeholder="eg. How do I invest my savings"></textarea>
                 </div>
             </div>
             <br>
