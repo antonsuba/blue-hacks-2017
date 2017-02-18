@@ -32,3 +32,4 @@ Route::get('auth/facebook/callback/{provider?}', 'Auth\AuthController@handleProv
 |--------------------------------------------------------------------------
 */
 
+Route::post('/message','App\MessagesController@sendMessage');
