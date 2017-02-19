@@ -57,15 +57,15 @@ class ConversationsController extends Controller
         $adviseeID;
         $adviserID;
 
-        $category = Category::where('name', $categoryName)->first();
+        $category = Category::where('name', $inputs['category_name'])->first();
         $checkAdviser = User_Types::where('user_id', Auth::id(), 'category_id', $category->id)->get();
         if($checkAdviser->isEmpty()){
             //user is advisee
             $adviseeID = Auth::id();
-            $adviserID = $userID;
+            $adviserID = $inputs['user_id'];
         } else{
             //user is advisor
-            $adviseeID = $userID;
+            $adviseeID = $inputs['user_id'];
             $adviserID = Auth::id();
         }
         $conversation = Conversation::where('advisee_id', $adviseeID, 'adviser_id', $adviserID)->first();
@@ -78,5 +78,14 @@ class ConversationsController extends Controller
         }
 
         return response()->json(['messages' => $list]);
+    }
+
+    public function rateAdviser(Request $request){
+        $inputs = $request->input();
+        $adviseeID;
+        $adviserID;
+
+        $category = Category::where('name', $inputs['category_name'])->first();
+        $adviserType = User_Types::where('user_id', $inputs['adviser_id'], 'category_id', $category->id)->first();
     }
 }
