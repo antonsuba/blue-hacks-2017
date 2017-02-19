@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserType extends Model
 {	
-	protected $table = "user_type";
+	protected $table = "user_types";
 
 	public function user(){
 		return $this->belongsTo('App\User');

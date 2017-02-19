@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 class ConversationsController extends Controller
 {
     public function retrieveMessages($categoryName, $userID){
-        $inputs = $request->input();
+        //$inputs = $request->input();
         $currentUser = Auth::user();
         $conversation;
         $adviseeID;
         $adviserID;
 
         $category = Category::where('name', $categoryName)->first();
-        $checkAdviser = User_Types::where('user_id', Auth::id(), 'category_id', $category->id)->get();
+        $checkAdviser = User_Type::where('user_id', Auth::id(), 'category_id', $category->id)->get();
         if($checkAdviser->isEmpty()){
             //user is advisee
             $adviseeID = Auth::id();
