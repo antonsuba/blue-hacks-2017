@@ -1,4 +1,4 @@
-# Blue Hacks 2017
+# Advisr
 
 ## Terms
 User - refers to anyone that will login and use the site
@@ -14,9 +14,13 @@ Conversation - refers to the discussion and conversation between the adviser and
 
 Message - refers to each individual user's response in a conversation
 
-## Functions
+## Features
 
+Adviser-Matchmaking
+          - Allows users to seek advice and help from Advisers on specific topics and concerns
 
+Conversational Set-up
+          - 
 
 ## Basic Flow
 
