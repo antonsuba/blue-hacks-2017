@@ -20,7 +20,7 @@ Adviser-Matchmaking
           - Allows users to seek advice and help from Advisers on specific topics and concerns
 
 Conversational Set-up
-          - 
+          - Provides an instant-messaging set-up/ environment between an advisee and an adviser
 
 ## Basic Flow
 
