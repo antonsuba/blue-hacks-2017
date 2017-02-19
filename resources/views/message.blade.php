@@ -17,7 +17,7 @@
             <div class="ui big form ">
                 <div class="field">
                     <label>What would you like to know?</label>
-                    <textarea rows="6" name="request" placeholder="eg. How do I invest my savings"></textarea>
+                    <textarea rows="6" name="content" placeholder="eg. How do I invest my savings"></textarea>
                 </div>
                 <input type="hidden" name="categoryID" value="{{$categoryID}}">
             </div>
