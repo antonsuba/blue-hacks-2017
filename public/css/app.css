@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Hind|Montserrat");
 /********** Mutli-Page ****************/
 body {
   background-color: #FFFFFF;
@@ -10,13 +11,31 @@ h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 2.5em; }
 
+.title-navbar {
+  background: -webkit-linear-gradient(90deg, #30cfd0 10%, #330867 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5em; }
+
+.content-container {
+  top: 140px; }
+
+.button-shaded {
+  color: #FFFFFF !important;
+  background: -webkit-linear-gradient(20deg, #30cfd0 10%, #330867 90%) !important;
+  /* Chrome 10+, Saf5.1+ */
+  background: -moz-linear-gradient(20deg, #30cfd0 10%, #330867 90%) !important;
+  /* FF3.6+ */
+  background: linear-gradient(20deg, #30cfd0 10%, #330867 90%) !important;
+  /* W3C */ }
+
 /********** Landing Page ****************/
 .welcome-body {
-  background: -webkit-linear-gradient(90deg, #74ebd5 10%, #9face6 90%);
+  background: -webkit-linear-gradient(40deg, #30cfd0 10%, #330867 90%);
   /* Chrome 10+, Saf5.1+ */
-  background: -moz-linear-gradient(90deg, #74ebd5 10%, #9face6 90%);
+  background: -moz-linear-gradient(40deg, #30cfd0 10%, #330867 90%);
   /* FF3.6+ */
-  background: linear-gradient(90deg, #74ebd5 10%, #9face6 90%);
+  background: linear-gradient(40deg, #30cfd0 10%, #330867 90%);
   /* W3C */ }
 
 .landing-master-div {
@@ -29,5 +48,15 @@ h1 {
   color: white;
   text-align: center;
   font-size: 6em; }
+
+/********** Home Page ****************/
+.card-background {
+  color: black;
+  background: white;
+  height: 240px; }
+
+.prev-conversation-card {
+  background: white;
+  height: 565px; }
 
 /*# sourceMappingURL=app.css.map */

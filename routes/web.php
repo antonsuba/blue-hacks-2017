@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/{category}', 'MatchingController@index');
+Route::post('/start-conversation', 'MatchingController@getAdviser');
+Route::get('/conversation/{categoryName}/{userID}', 'ConversationsController@retrieveMessages')->name('conversations');
+//Route::post('/conversation/{id}/send-message', 'ConversationsController@sendMessage');
+
 /*
 |--------------------------------------------------------------------------
 | Auth Routes
@@ -32,3 +39,8 @@ Route::get('auth/facebook/callback/{provider?}', 'Auth\AuthController@handleProv
 |--------------------------------------------------------------------------
 */
 
+Route::get('/conversation/messages/{catID}','ConversationsController@retrieveMessages');
+Route::get('/message/add','MatchingController@getAdviser'); //When user adds a "first" question and thus the website assigning an expert to him
+
+Route::post('/message/send','MessagesController@sendMessage');
+Route::post('/conversation/messages', 'ConversationsController@updateMessages');

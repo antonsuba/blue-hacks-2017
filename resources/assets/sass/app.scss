@@ -1,3 +1,5 @@
+//Fonts
+@import url('https://fonts.googleapis.com/css?family=Hind|Montserrat');
 
 // Variables
 @import "variables";
@@ -20,12 +22,31 @@ h1{
 	font-size: 2.5em;
 }
 
+.title-navbar{
+	background: -webkit-linear-gradient(90deg, $gradient-left 10%, $gradient-right 90%);
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+	font-size: 2.5em;
+}
+
+.content-container{
+	top: 140px;
+}
+
+.button-shaded{
+	color: #FFFFFF !important;
+	background: -webkit-linear-gradient(20deg, $gradient-left 10%, $gradient-right 90%) !important; /* Chrome 10+, Saf5.1+ */ 
+	background: -moz-linear-gradient(20deg, $gradient-left 10%, $gradient-right 90%) !important; /* FF3.6+ */ 
+	background: linear-gradient(20deg, $gradient-left 10%, $gradient-right 90%) !important; /* W3C */ 
+}
+
+
 
 /********** Landing Page ****************/
 .welcome-body{
-	background: -webkit-linear-gradient(90deg, $gradient-left 10%, $gradient-right 90%); /* Chrome 10+, Saf5.1+ */ 
-	background: -moz-linear-gradient(90deg, $gradient-left 10%, $gradient-right 90%); /* FF3.6+ */ 
-	background: linear-gradient(90deg, $gradient-left 10%, $gradient-right 90%); /* W3C */ 
+	background: -webkit-linear-gradient(40deg, $gradient-left 10%, $gradient-right 90%); /* Chrome 10+, Saf5.1+ */ 
+	background: -moz-linear-gradient(40deg, $gradient-left 10%, $gradient-right 90%); /* FF3.6+ */ 
+	background: linear-gradient(40deg, $gradient-left 10%, $gradient-right 90%); /* W3C */ 
 }
 
 .landing-master-div{
@@ -39,4 +60,18 @@ h1{
 	color: white;
     text-align: center;
     font-size: 6em;
+}
+
+
+
+/********** Home Page ****************/
+.card-background{
+	color: black;
+	background: white;
+	height: 240px;
+}
+
+.prev-conversation-card{
+	background: white;
+	height: 565px;
 }
