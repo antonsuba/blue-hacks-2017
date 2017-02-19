@@ -25,6 +25,7 @@ Conversational Set-up
 ## Basic Flow
 
 (Note: A user can be both an advisee and an adviser, there is a user_type table that keeps track if they're an advisee or adviser in a certain category. Advisers can only be an adviser in one category)
+
 Advisee-side:
 
 1. Login through Facebook
