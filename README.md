@@ -26,6 +26,7 @@ Conversational Set-up
 
 (Note: A user can be both an advisee and an adviser, there is a user_type table that keeps track if they're an advisee or adviser in a certain category. Advisers can only be an adviser in one category)
 Advisee-side:
+
 1. Login through Facebook
 2. Select a category in which they want to get answers from
 3. Send a Message to the site, which the site will then assign an adviser to answer
@@ -34,6 +35,7 @@ Advisee-side:
 6. Logout
 
 Adviser-side:
+
 1. Login through Facebook
 2. Select category in which they are an advisor
 3. If they don't have any conversation/s with an advisee, wait till they are assigned to one, else skip to 4
