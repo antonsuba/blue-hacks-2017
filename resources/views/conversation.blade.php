@@ -11,6 +11,7 @@
             <form class="ui form" method = "POST" action="{{url('/get-adviser')}}">
             @for($i = 0; $i < count($messages); $i += 2)
                 <div id="message-container">
+                    {{ $messages->content }}
                 </div>
                 <div class="ui section divider"></div>
             @endfor
