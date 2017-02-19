@@ -8,7 +8,7 @@ use App\UserType;
 use App\Conversation;
 use App\Category;
 
-class MatchingController extends Controller
+class MatchingController extends ConversationsController
 {
     public function index($categoryName){
         $category = Category::where('name', $categoryName)->first();
@@ -16,7 +16,6 @@ class MatchingController extends Controller
         return view('message', ['categoryID' => $category['id']]);
     }
 
-    //Laravel.generate.code();
     public function getAdviser(Request $request){
         $inputs = $request->input();
 
@@ -42,5 +41,7 @@ class MatchingController extends Controller
         $message->content = $content;
         $message->conversation_id = $conversation->id;
         $message->save();
+
+        retrieveMessages($categoryName, $userID);
     }
 }

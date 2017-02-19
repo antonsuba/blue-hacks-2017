@@ -6,23 +6,23 @@ use Illuminate\Http\Request;
 
 class ConversationsController extends Controller
 {
-    public function retrieveMessages(Request $request){
+    public function retrieveMessages($categoryName, $userID){
         $inputs = $request->input();
         $currentUser = Auth::user();
         $conversation;
         $adviseeID;
         $adviserID;
 
-        $category = Category::where('name', $inputs['categoryName'])->first();
+        $category = Category::where('name', $categoryName)->first();
         $checkAdviser = User_Types::where('user_id', Auth::id(), 'category_id', $category->id)->get();
         if($checkAdviser->isEmpty()){
             //user is advisee
-            $adviseeID = $inputs['userID'];
-            $adviserID = Auth::id();
-        } else{
-            //user is advisor
             $adviseeID = Auth::id();
-            $adviserID = $inputs['userID'];
+            $adviserID = $userID;
+        } else{
+            //user is advisor            
+            $adviseeID = $userID;
+            $adviserID = Auth::id();
         }
         $conversation = Conversation::where('advisee_id', $adviseeID, 'adviser_id', $adviserID)->first();
         //$messages = $conversation->messages()::where('created_at', '>', $inputs['currentTimestamp']);

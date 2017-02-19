@@ -12,16 +12,12 @@
 
         <div class="six wide column">
 
-            <div id="message-container">
-            
-            </div>
-
             <form class="ui form" method = "POST" action="{{url('/get-adviser')}}">
             @for($i = 0; $i < len($list); $i += 2)
-            <div>
+                <div id="message-container">
                 
-            </div>
-            <div class="ui section divider"></div>
+                </div>
+                <div class="ui section divider"></div>
             @endfor
 
             <form class="ui form" method = "POST" action="{{url('/conversation/')}}">
