@@ -15,12 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/{category}', 'MatchingController@index');
 Route::post('/start-conversation', 'MatchingController@getAdviser');
-Route::get('/conversation/{id}', 'ConversationsController@retrieveMessages');
-Route::post('/conversation/{id}/send-message', 'ConversationsController@sendMessage');
+Route::get('/conversation/{categoryName}/{userID}', 'ConversationsController@retrieveMessages')->name('conversations');
+//Route::post('/conversation/{id}/send-message', 'ConversationsController@sendMessage');
 
 /*
 |--------------------------------------------------------------------------

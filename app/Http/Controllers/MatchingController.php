@@ -11,21 +11,21 @@ use App\User;
 use App\Message;
 
 use Auth;
+use Redirect;
 
 class MatchingController extends ConversationsController
 {
-    public $categoryName;
 
     public function index($categoryName){
-        $this->categoryName = $categoryName;
         $category = Category::where('name', $categoryName)->first();
 
-        return view('message', ['categoryID' => $category['id']]);
+        return view('message', ['categoryID' => $category['id'], 'categoryName' => $categoryName]);
     }
 
     public function getAdviser(Request $request){
         $inputs = $request->input();
 
+        //Matching to Adviser
         $results = UserType::where('category_id', $inputs['categoryID'])->orderBy('rating', 'desc')->limit(5)->get();
         $advisers = array();
         foreach ($results as $result) {
@@ -35,23 +35,29 @@ class MatchingController extends ConversationsController
         //$adviser = $advisers[rand(0, 4)];
         $adviser = $advisers[0];
 
-        //var_dump($adviser);
+        $content = $inputs['content'];
+        $adviserID = $adviser->id;
 
-        $this->createPost($inputs['content'], $adviser->id);
-    }
-
-    public function createPost($content, $adviserID){
+        //Creating Conversation
         $conversation = new Conversation;
         $conversation->advisee_id = Auth::id();
-        $conversation->adviser_id = User::find($adviserID)->id;
+        //$conversation->adviser_id = User::find($adviserID)->id;
+        $conversation->adviser_id = $adviserID;
         $conversation->save();
 
-        $message = new Message();
+        //var_dump($conversation->adviser_id);
+
+        $message = new Message;
         $message->user_id = Auth::id();
         $message->content = $content;
         $message->conversation_id = $conversation->id;
         $message->save();
 
-        $this->retrieveMessages($this->categoryName, $conversation->adviser_id);
+        //$returnedarr = app('App\Http\Controllers\ConversationsController')->retrieveMessages($this->categoryName, $conversation->adviser_id);
+
+        //return view('conversation', ['advisee_name' => returnedarr[0], 'adviser_name' => returnedarr[1], 'messages' => returned[2]]);
+
+        //$this->retrieveMessages($this->categoryName, $conversation->adviser_id);
+        return Redirect::route('conversations', array('categoryName' => $inputs['categoryName'], 'userID' => $conversation->adviser_id));
     }
 }
