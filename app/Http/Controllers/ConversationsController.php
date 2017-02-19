@@ -25,10 +25,12 @@ class ConversationsController extends Controller
             $adviserID = $inputs['userID'];
         }
         $conversation = Conversation::where('advisee_id', $adviseeID, 'adviser_id', $adviserID)->first();
-        $messages = $conversation->messages()::where('created_at', '>', $inputs['currentTimestamp']);
+        //$messages = $conversation->messages()::where('created_at', '>', $inputs['currentTimestamp']);
         $list = array();
         foreach ($messages as $message) {
+            if($message->created_at > $inputs['currentTimestamp']) {
             array_push($list, $message->user_id, $message->content);
+            }
         }
 
         //$messages = Message::where('user_id', Auth::id(), 'conversation_id', $conversation->id)->get();
