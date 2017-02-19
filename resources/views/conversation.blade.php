@@ -49,7 +49,7 @@
     var fetchMessages = function() {
         $.ajax({
             dataType: 'json',
-            type: "GET",
+            type: "POST",
             url: "/conversation/messages",
             data: {"currentTimestamp": currentTimestamp}
             success: function(data) {

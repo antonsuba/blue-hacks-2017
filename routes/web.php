@@ -43,3 +43,4 @@ Route::get('/conversation/messages/{catID}','ConversationsController@retrieveMes
 Route::get('/message/add','MatchingController@getAdviser'); //When user adds a "first" question and thus the website assigning an expert to him
 
 Route::post('/message/send','MessagesController@sendMessage');
+Route::post('/conversation/messages', 'ConversationsController@updateMessages');
