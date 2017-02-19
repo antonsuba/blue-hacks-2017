@@ -20,6 +20,7 @@
                     <textarea rows="6" name="content" placeholder="eg. How do I invest my savings"></textarea>
                 </div>
                 <input type="hidden" name="categoryID" value="{{$categoryID}}">
+                <input type="hidden" name="categoryName" value="{{$categoryName}}">
             </div>
             <br>
             <button id="done-button-itinerary" type="submit" class="ui huge button button-shaded right floated">Send!</button>
