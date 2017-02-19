@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\UserType;
+use App\Conversation;
+use App\Category;
 
 class MatchingController extends Controller
 {
     public function index($categoryName){
         $category = Category::where('name', $categoryName)->first();
 
-        return view('message', $category->id);
+        return view('message', ['categoryID' => $category['id']]);
     }
 
     //Laravel.generate.code();
