@@ -25,6 +25,7 @@
                 <div class="field">
                     <textarea rows="4" name="request" placeholder="Type a message"></textarea>
                 </div>
+                <input type="hidden" name="location">
             </div>
             <br>
             <button id="done-button-itinerary" type="submit" class="ui huge button button-shaded right floated">Send</button>
