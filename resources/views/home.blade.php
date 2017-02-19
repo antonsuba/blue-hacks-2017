@@ -15,6 +15,11 @@
                     
                 </div>
             </div>
+            <div class="content card-content">
+                <div class="header">
+                    <span class="card-header">Financial</span>
+                </div>
+            </div>
         </div>
         {{-- @endforeach --}}
 
@@ -24,12 +29,9 @@
                     
                 </div>
             </div>
-        </div>
-
-        <div class="ui raised link card" onclick="window.location='/finance">
-            <div class="image">
-                <div class="card-background centered">
-                    
+            <div class="content card-content">
+                <div class="header">
+                    <span class="card-header">Medical</span>
                 </div>
             </div>
         </div>
@@ -38,6 +40,24 @@
             <div class="image">
                 <div class="card-background centered">
                     
+                </div>
+            </div>
+            <div class="content card-content">
+                <div class="header">
+                    <span class="card-header">Legal</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui raised link card" onclick="window.location='/finance">
+            <div class="image">
+                <div class="card-background centered">
+                    
+                </div>
+            </div>
+            <div class="content card-content">
+                <div class="header">
+                    <span class="card-header">Technology</span>
                 </div>
             </div>
         </div>
@@ -52,6 +72,11 @@
             <div class="image">
                 <div class="prev-conversation-card centered">
                     
+                </div>
+            </div>
+            <div class="content card-content">
+                <div class="header">
+                    <span class="card-header">Your previous conversation</span>
                 </div>
             </div>
         </div>

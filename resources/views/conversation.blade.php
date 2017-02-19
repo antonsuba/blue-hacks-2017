@@ -9,12 +9,13 @@
         <div class="six wide column">
 
             <form class="ui form" method = "POST" action="{{url('/get-adviser')}}">
-            @for($i = 0; $i < count($messages); $i += 2)
+            {{-- @for($i = 0; $i < count($messages); $i += 2) --}}
+            @foreach($messages as $message)
                 <div id="message-container">
-                    {{ $messages->content }}
+                    {{ $message }}
                 </div>
                 <div class="ui section divider"></div>
-            @endfor
+            @endforeach
 
             <form class="ui form" method = "POST" action="{{url('/conversation')}}">
             {{ csrf_field() }}

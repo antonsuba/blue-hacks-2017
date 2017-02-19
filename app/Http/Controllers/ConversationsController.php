@@ -39,9 +39,8 @@ class ConversationsController extends Controller
 
         $list = array();
         foreach ($messages as $message) {
-            //if($message->created_at > $inputs['currentTimestamp']) {
-            array_push($list, $message->user_id, $message->content);
-            //}
+            array_push($list, $message->user_id);
+            array_push($list, $message->content);
         }
 
         $advisee = User::find($adviseeID);
