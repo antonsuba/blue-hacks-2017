@@ -12,6 +12,11 @@
 
         <div class="six wide column">
 
+            <div id="message-container">
+            
+            </div>
+
+            <form class="ui form" method = "POST" action="{{url('/get-adviser')}}">
             @for($i = 0; $i < len($list); $i += 2)
             <div>
                 
@@ -42,8 +47,29 @@
 
 <script type="text/javascript">
     $('.ui.dropdown').dropdown();
+
+    var currentTimestamp = Date.now();
     
-    
+    var fetchMessages = function() {
+        $.ajax({
+            dataType: 'json',
+            type: "GET",
+            url: "/conversation/messages",
+            data: {"currentTimestamp": currentTimestamp}
+            success: function(data) {
+            currentTimestamp = Date.now();
+            if(data.length > 0) {
+                var j = JSON.parse(data);
+                for(var i = 0; i < data.length; i++){
+                    var message = j[i];
+                    var content = $("<div></div>").text(message["content"]);
+                    $("#message-container").append(content);
+                }
+            }}
+        })
+    }
+
+    setInterval(fetchMessages, 5000);
 </script>
 
 @endsection

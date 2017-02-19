@@ -14,7 +14,6 @@ class ConversationsController extends Controller
         $adviserID;
 
         $category = Category::where('name', $inputs['categoryName'])->first();
-
         $checkAdviser = User_Types::where('user_id', Auth::id(), 'category_id', $category->id)->get();
         if($checkAdviser->isEmpty()){
             //user is advisee
@@ -26,12 +25,12 @@ class ConversationsController extends Controller
             $adviserID = $inputs['userID'];
         }
         $conversation = Conversation::where('advisee_id', $adviseeID, 'adviser_id', $adviserID)->first();
-
-        $messages = $conversation->messages();
+        $messages = $conversation->messages()::where('created_at', '>', $inputs['currentTimestamp']);
         $list = array();
         foreach ($messages as $message) {
             array_push($list, $message->user_id, $message->content);
         }
+
         //$messages = Message::where('user_id', Auth::id(), 'conversation_id', $conversation->id)->get();
         $advisee = User::find($adviseeID);
         $adviser = User::find($adviserID);
